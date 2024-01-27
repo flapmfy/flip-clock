@@ -1,0 +1,121 @@
+:root {
+  --ff-base: system-ui, sans-serif;
+  --container-max: 80ch;
+  --container-breakout: 90ch;
+  --container-padding: 2rem;
+}
+
+/******reset******/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--ff-base);
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/******utility classes******/
+.visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+}
+
+.container {
+  width: min(100% - var(--container-padding), var(--container-max));
+  margin-inline: auto;
+}
+
+.content-grid {
+  --container-breakout-width: calc((var(--container-breakout) - var(--container-max)) / 2);
+
+  display: grid;
+  grid-template-columns:
+    [full-width-start] minmax(var(--container-padding), 1fr)
+    [breakout-start] minmax(0, var(--container-breakout-width))
+    [content-start] min(100% - (2 * var(--container-padding)), var(--container-max)) [content-end]
+    minmax(0, var(--container-breakout-width)) [breakout-end]
+    minmax(var(--container-padding), 1fr) [full-width-end];
+}
+
+.content-grid > * {
+  grid-column: content;
+}
+
+.content-grid > .breakout {
+  grid-column: breakout;
+}
+
+.content-grid > .full-width {
+  grid-column: full-width;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/******styling******/
