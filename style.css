@@ -1,8 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@700&display=swap');
+
 :root {
-  --ff-base: system-ui, sans-serif;
+  --ff-base: 'Red Hat Text', sans-serif;
   --container-max: 80ch;
   --container-breakout: 90ch;
   --container-padding: 2rem;
+
+  --clr-blue-100: hsl(237, 18%, 59%);
+  --clr-red-300: hsl(345, 95%, 68%);
+  --clr-white-400: hsl(0, 0%, 100%);
+  --clr-blue-700: hsl(236, 21%, 26%);
+  --clr-blue-800: hsl(235, 16%, 14%);
+  --clr-blue-900: hsl(234, 17%, 12%);
 }
 
 /******reset******/
@@ -24,6 +33,7 @@ html:focus-within {
 
 body {
   font-family: var(--ff-base);
+  font-weight: 700;
   min-height: 100vh;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
