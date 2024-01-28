@@ -5,6 +5,12 @@ const secondsSegment = document.querySelector('[data-value="seconds"]');
 
 const endDate = new Date(2024, 2, 10, 14);
 
+document.addEventListener('DOMContentLoaded', () => {
+  const currentDate = new Date();
+  const dateDiffSeconds = Math.ceil((endDate - currentDate) / 1000);
+  updateCountdown(dateDiffSeconds);
+});
+
 setInterval(() => {
   const currentDate = new Date();
   const dateDiffSeconds = Math.ceil((endDate - currentDate) / 1000);
